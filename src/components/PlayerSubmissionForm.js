@@ -7,16 +7,58 @@ class PlayerSubmissionForm extends Component {
 
   constructor(props) {
     super(props);
+
+    this.state = {
+      firstAdjective: undefined,
+      firstNoun: undefined,
+      adverb: undefined,
+      verb: undefined,
+      secondAdjective: undefined,
+      secondNoun: undefined,
+    }
   }
 
-  onSubmitButtonClick = () => {
-    console.log("Hey howdy hey!");
 
-    this.props.receivePlayerSubmissionCallback();
-    
+  onSubmitButtonClick = (event) => {
+    event.preventDefault();
+    console.log(event.target);
+
+    const newSubmission = {
+      firstAdjective: this.state.firstAdjective,
+      firstNoun: this.state.firstNoun,
+      adverb: this.state.adverb,
+      verb: this.state.verb,
+      secondAdjective: this.state.secondAdjective,
+      secondNoun: this.state.secondNoun,
+    }
+
+    this.setState({
+      firstAdjective: undefined,
+      firstNoun: undefined,
+      adverb: undefined,
+      verb: undefined,
+      secondAdjective: undefined,
+      secondNoun: undefined,
+    })
+
+    this.props.receivePlayerSubmissionCallback(newSubmission);
+
+  }
+
+  onInputChange = (event) => {
+    const updatedSubmission = {};
+
+    const field = event.target.name;
+    const value = event.target.value;
+
+    updatedSubmission[field] = value;
+    this.setState(updatedSubmission);
+
   }
 
   render() {
+
+    // console.log(this.state);
 
     return (
       <div className="PlayerSubmissionForm">
@@ -29,9 +71,46 @@ class PlayerSubmissionForm extends Component {
             {
               // Put your form inputs here... We've put in one below as an example
             }
+            The
             <input
-              placeholder="hm..."
+              name="firstAdjective"
+              onChange={this.onInputChange}
+              placeholder="adjective"
               type="text" />
+
+             <input
+              name="firstNoun"
+              onChange={this.onInputChange}
+              placeholder="noun"
+              type="text" />
+
+              <input
+              name="adverb"
+              onChange={this.onInputChange}
+              placeholder="adverb"
+              type="text" />
+
+              <input
+              name="verb"
+              onChange={this.onInputChange}
+              placeholder="verb"
+              type="text" />
+
+              the
+
+              <input
+              name="secondAdjective"
+              onChange={this.onInputChange}
+              placeholder="adjective"
+              type="text" />
+
+              <input
+              name="secondNoun"
+              onChange={this.onInputChange}
+              placeholder="noun"
+              type="text" />
+              .
+
 
           </div>
 

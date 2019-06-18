@@ -10,8 +10,24 @@ class Game extends Component {
     super(props);
   }
 
-  receivePlayerSubmission = () => {
-    console.log("IT WORKED");
+  convertToString = (object) => {
+
+    let newString = "The ";
+
+    newString += `${object.firstAdjective} `;
+    newString += `${object.firstNoun} `;
+    newString += `${object.adverb} `;
+    newString += `${object.verb} the `;
+    newString += `${object.secondAdjective} `;
+    newString += `${object.secondNoun}.`;
+
+    console.log(newString);
+  }
+
+  receivePlayerSubmission = (newSubmission) => {
+
+    this.convertToString(newSubmission);
+
   }
 
   render() {
