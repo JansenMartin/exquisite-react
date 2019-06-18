@@ -1,10 +1,19 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import './PlayerSubmissionForm.css';
 
 class PlayerSubmissionForm extends Component {
 
   constructor(props) {
     super(props);
+  }
+
+  onSubmitButtonClick = () => {
+    console.log("Hey howdy hey!");
+
+    this.props.receivePlayerSubmissionCallback();
+    
   }
 
   render() {
@@ -27,12 +36,16 @@ class PlayerSubmissionForm extends Component {
           </div>
 
           <div className="PlayerSubmissionForm__submit">
-            <input type="submit" value="Submit Line" className="PlayerSubmissionForm__submit-btn" />
+            <input onClick={this.onSubmitButtonClick} type="submit" value="Submit Line" className="PlayerSubmissionForm__submit-btn" />
           </div>
         </form>
       </div>
     );
   }
+}
+
+PlayerSubmissionForm.propTypes = {
+  receivePlayerSubmissionCallback: PropTypes.func,
 }
 
 export default PlayerSubmissionForm;

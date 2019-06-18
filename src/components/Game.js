@@ -10,6 +10,10 @@ class Game extends Component {
     super(props);
   }
 
+  receivePlayerSubmission = () => {
+    console.log("IT WORKED");
+  }
+
   render() {
 
     const exampleFormat = FIELDS.map((field) => {
@@ -34,7 +38,7 @@ class Game extends Component {
 
         <RecentSubmission />
 
-        <PlayerSubmissionForm />
+        <PlayerSubmissionForm receivePlayerSubmissionCallback={this.receivePlayerSubmission}/>
 
         <FinalPoem />
 
