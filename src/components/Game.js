@@ -26,7 +26,7 @@ class Game extends Component {
     newString += `${object.secondAdjective} `;
     newString += `${object.secondNoun}.`;
 
-    console.log(newString);
+    this.setState({recentSubmission: `${newString}`});
   }
 
   receivePlayerSubmission = (newSubmission) => {
@@ -36,6 +36,8 @@ class Game extends Component {
   }
 
   render() {
+
+    console.log(this.state.recentSubmission);
 
     const exampleFormat = FIELDS.map((field) => {
       if (field.key) {
