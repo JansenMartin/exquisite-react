@@ -15,6 +15,7 @@ class PlayerSubmissionForm extends Component {
       verb: undefined,
       secondAdjective: undefined,
       secondNoun: undefined,
+      playerNumber: 1
     }
   }
 
@@ -32,6 +33,8 @@ class PlayerSubmissionForm extends Component {
       secondNoun: this.state.secondNoun,
     }
 
+    const newPlayer = this.state.playerNumber += 1;
+
     this.setState({
       firstAdjective: '',
       firstNoun: '',
@@ -39,6 +42,7 @@ class PlayerSubmissionForm extends Component {
       verb: '',
       secondAdjective: '',
       secondNoun: '',
+      playerNumber: newPlayer,
     });
 
     this.props.receivePlayerSubmissionCallback(newSubmission);
@@ -56,14 +60,16 @@ class PlayerSubmissionForm extends Component {
 
   }
 
+  
+
   render() {
 
     // console.log(this.state);
-    const { firstAdjective, firstNoun, adverb, verb, secondAdjective, secondNoun } = this.state;
+    const { firstAdjective, firstNoun, adverb, verb, secondAdjective, secondNoun, playerNumber } = this.state;
 
     return (
       <div className="PlayerSubmissionForm">
-        <h3>Player Submission Form for Player #{  }</h3>
+        <h3>Player Submission Form for Player #{ playerNumber }</h3>
 
         <form className="PlayerSubmissionForm__form" >
 
