@@ -33,13 +33,13 @@ class PlayerSubmissionForm extends Component {
     }
 
     this.setState({
-      firstAdjective: undefined,
-      firstNoun: undefined,
-      adverb: undefined,
-      verb: undefined,
-      secondAdjective: undefined,
-      secondNoun: undefined,
-    })
+      firstAdjective: '',
+      firstNoun: '',
+      adverb: '',
+      verb: '',
+      secondAdjective: '',
+      secondNoun: '',
+    });
 
     this.props.receivePlayerSubmissionCallback(newSubmission);
 
@@ -58,7 +58,8 @@ class PlayerSubmissionForm extends Component {
 
   render() {
 
-    // console.log(this.state);
+    console.log(this.state);
+    const { firstAdjective, firstNoun, adverb, verb, secondAdjective, secondNoun } = this.state;
 
     return (
       <div className="PlayerSubmissionForm">
@@ -74,24 +75,28 @@ class PlayerSubmissionForm extends Component {
             The
             <input
               name="firstAdjective"
+              value={firstAdjective}
               onChange={this.onInputChange}
               placeholder="adjective"
               type="text" />
 
              <input
               name="firstNoun"
+              value={firstNoun}
               onChange={this.onInputChange}
               placeholder="noun"
               type="text" />
 
               <input
               name="adverb"
+              value={adverb}
               onChange={this.onInputChange}
               placeholder="adverb"
               type="text" />
 
               <input
               name="verb"
+              value={verb}
               onChange={this.onInputChange}
               placeholder="verb"
               type="text" />
@@ -100,12 +105,14 @@ class PlayerSubmissionForm extends Component {
 
               <input
               name="secondAdjective"
+              value={secondAdjective}
               onChange={this.onInputChange}
               placeholder="adjective"
               type="text" />
 
               <input
               name="secondNoun"
+              value={secondNoun}
               onChange={this.onInputChange}
               placeholder="noun"
               type="text" />
