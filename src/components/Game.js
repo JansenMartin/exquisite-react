@@ -18,6 +18,7 @@ class Game extends Component {
   convertToString = (object) => {
 
     let newString = "The ";
+    let updatedFinalSubmission = this.state.finalSubmission;
 
     newString += `${object.firstAdjective} `;
     newString += `${object.firstNoun} `;
@@ -26,7 +27,13 @@ class Game extends Component {
     newString += `${object.secondAdjective} `;
     newString += `${object.secondNoun}.`;
 
-    this.setState({recentSubmission: `${newString}`});
+    updatedFinalSubmission.push(newString);
+
+    this.setState({
+      recentSubmission: `${newString}`,
+      finalSubmission: updatedFinalSubmission,
+    });
+  
   }
 
   receivePlayerSubmission = (newSubmission) => {
@@ -37,7 +44,7 @@ class Game extends Component {
 
   render() {
 
-    console.log(this.state.recentSubmission);
+    console.log(this.state.finalSubmission);
 
     const exampleFormat = FIELDS.map((field) => {
       if (field.key) {

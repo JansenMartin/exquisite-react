@@ -58,7 +58,7 @@ class PlayerSubmissionForm extends Component {
 
   render() {
 
-    console.log(this.state);
+    // console.log(this.state);
     const { firstAdjective, firstNoun, adverb, verb, secondAdjective, secondNoun } = this.state;
 
     return (
