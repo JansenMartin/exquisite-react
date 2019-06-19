@@ -70,7 +70,7 @@ class Game extends Component {
 
         <PlayerSubmissionForm receivePlayerSubmissionCallback={this.receivePlayerSubmission}/>
 
-        <FinalPoem />
+        <FinalPoem finalSubmission={this.state.finalSubmission}/>
 
       </div>
     );
